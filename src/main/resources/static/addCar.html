@@ -1,0 +1,41 @@
+<h3>Add a car to the database</h3>
+<p>In this form you can declare the car's license-plate, colour and parking location.</p>
+<hr>
+<form ng-init="loadParking()">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <strong>License plate</strong>
+            </div>
+            <div class="col-sm">
+                <strong>Colour</strong>
+            </div>
+            <div class="col-sm">
+                <strong>Location</strong>
+            </div>
+            <div class="col-sm">
+                <strong>Option</strong>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm">
+                <input type="text" maxlength="8" ng-model="car.licensePlate" id="licensePlate">
+            </div>
+            <div class="col-sm">
+                <input type="color" ng-model="car.colour" id="colour">
+            </div>
+            <div class="col-sm">
+                <select ng-model="car.parkingLot.id">
+                    <option ng-repeat="parkinglot in parkinglots" value="{{parkinglot.id}}">
+                        {{parkinglot.id}} - {{parkinglot.location}}
+                    </option>
+                </select>
+            </div>
+            <div class="col-sm">
+                <button type="submit" ng-click="save()" ng-model-instant>Add Car</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<p>{{msg}}</p>

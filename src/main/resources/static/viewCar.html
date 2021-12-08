@@ -1,0 +1,51 @@
+<h3>View a car's details from the database</h3>
+<hr>
+<form>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm">
+                <strong>Search by license plate:</strong>
+            </div>
+            <div class="col-sm">
+                <input type="text" maxlength="8" ng-model="licensePlate" id="searchPlate">
+            </div>
+            <div class="col-sm">
+                <button type="submit" ng-click="searchByPlate(licensePlate)">Search Car</button>
+            </div>
+        </div>
+    </div>
+</form>
+
+<hr>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm">
+            <strong>Car ID</strong>
+        </div>
+        <div class="col-sm">
+            <strong>License plate</strong>
+        </div>
+        <div class="col-sm">
+            <strong>Colour</strong>
+        </div>
+        <div class="col-sm">
+            <strong>Location</strong>
+        </div>
+    </div>
+    <div class="row" ng-repeat="car in cars">
+        <div class="col-sm">
+            {{car.id}}
+        </div>
+        <div class="col-sm">
+            {{car.licensePlate}}
+        </div>
+        <div class="col-sm">
+            {{car.colour}}
+        </div>
+        <div class="col-sm">
+            {{car.parkingLot["location"]}}
+        </div>
+    </div>
+</div>
+
